@@ -16,7 +16,7 @@ public class Client {
         try {
             Socket clientSocket = new Socket("localhost", 5555);
             Client client = new Client(clientSocket);
-
+            client.socket.close();
         }catch(IOException e){
             System.out.println("Failed to make connection to Server from Client main method");
         }

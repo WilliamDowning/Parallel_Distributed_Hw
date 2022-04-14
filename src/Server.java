@@ -29,10 +29,12 @@ public class Server {
                clientSocket = serverSocket.accept();
                System.out.println("The Server has connected with its client at address: " + clientSocket.getInetAddress().getHostAddress());
             }
+            serverSocket.close();
         }catch(Exception e){
             System.out.println("Failed to establish connection to Client from Server start_server");
 
         }
+
     }
 
     public static void main(String[] args){
@@ -41,6 +43,7 @@ public class Server {
             ServerSocket ss = new ServerSocket(5555);
             Server server = new Server(ss);
             server.start_Server();
+
         }catch(IOException e){
             System.out.println("Failed to create Server Socket Connection at Server Main method");
 
